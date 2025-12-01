@@ -1,6 +1,13 @@
 # qemu-test
 
-1.mac env run ubuntu
+##建一顆虛擬硬碟
+qemu-img create -f qcow2 ubuntu_vm.qcow2 40G
+
+-f qcow2：使用 qcow2 格式（支援快照、可動態長大）
+40G：虛擬磁碟大小（上限）
+
+
+##mac env run ubuntu
 
 qemu-system-x86_64 \                                               
   -accel tcg,thread=multi \
@@ -14,7 +21,8 @@ qemu-system-x86_64 \
 
 
 
-2.安裝完從硬碟開機
+##安裝完從硬碟開機
+
 qemu-system-x86_64 \
   -accel tcg,thread=multi \
   -m 4096 \
